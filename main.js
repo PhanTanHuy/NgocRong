@@ -1,3 +1,24 @@
+// Nội dung chat của vegeta
+var tinnhan = document.getElementById('tinnhan');
+var chats = [
+    "Hahaha lũ người Trái Đất yếu ớt!",
+    "Ta là Vegeta hoàng tử Sayan!",
+    "Ta sẽ quét sạch Trái Đất!",
+    "Bước ra đây mình ta chấp hết Hahah!"
+]
+// hàm random chat của vegeta 
+function startChat(chat) {
+    setInterval(function () {
+        var randomchat = Math.floor(Math.random() * 4);
+        tinnhan.innerHTML = chat[randomchat];
+        tinnhan.style.display = "block";
+        setTimeout(function () {
+            tinnhan.style.display = "none";
+        }, 2000)
+    }, 4000); // Chạy mỗi giây (1500 miliseconds)
+}
+
+startChat(chats);
 // tắt bên dưới 
 setTimeout(function() {
     nangcap.classList.remove('gamebutton');
@@ -122,9 +143,20 @@ nangcap.addEventListener('click', function(){
 var tancong = document.getElementById('tancong');
 var vegeta = document.getElementById('vegeta');
 var goku = document.getElementById('goku');
-
+var phantramhp = document.getElementById('phantramhp');
+// hp
+var hp = 100 - (dem + 1)*3;
 var mainDisplay = document.getElementById('mainDisplay');
 tancong.addEventListener('click', function(){
+    // tru hp vegeta
+    phantramhp.style.width = hp + "%";
+    console.log(hp);
+    
+    hp = hp -(dem+1)*3;
+    if (hp <= 0){
+        phantramhp.style.display = "none";
+    }
+    // doi anh goku
     var gokuImage = document.getElementById('gokuImage');
     gokuImage.src = './bigImg/goku3.png';
     var vegetaRect = vegeta.getBoundingClientRect();
@@ -151,11 +183,10 @@ tancong.addEventListener('click', function(){
 var vegetaimg = document.getElementById('vegetaimg');
 
 
-
 function startLoop() {
     setInterval(function () {
         vegetaimg.src = './img/vegetagif2.gif';
-        vegeta.classList.remove('taitaonangluong');
+        vegeta.classList.remove('taitaonangluong');   
         var timeTtnl = Math.floor(Math.random() * 3) + 1;
         var randomNum = Math.floor(Math.random() * 3) + 1;
         if (timeTtnl === randomNum) {

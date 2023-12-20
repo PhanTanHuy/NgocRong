@@ -62,7 +62,7 @@ a {
     right: 0;
     left: 0;
     height: calc(50% - 5px);
-    border: 1px solid #7D8082;
+    border: 1px solid #6b2707;
     transition: all .15s ease;
   }
   
@@ -99,7 +99,8 @@ a {
     position: relative;
     display: block;
     padding: 10px 20px;
-    color: #fff;
+    /* color: #fff; */
+    color: rgb(255, 106, 0);
     background-color: #0f1923;
     overflow: hidden;
     box-shadow: inset 0px 0px 0px 1px transparent;
@@ -135,7 +136,7 @@ a {
     bottom: -1px;
     left: -8px;
     width: 0;
-    background-color: #3e3558;
+    background-color: #680e3b;
     transform: skew(-15deg);
     transition: all .2s ease;
   }
