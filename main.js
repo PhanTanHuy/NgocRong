@@ -45,7 +45,7 @@ var dem = 0;
 nangcap.addEventListener('click', function(){
     if (dem === 5){
         nangcap.innerHTML = "Đã max cấp";
-        tyletc.classList.add('gamebutton');
+
     }
     else {
         if (tinhtyle(tangdann)){
@@ -68,7 +68,12 @@ nangcap.addEventListener('click', function(){
                 tancong.classList.remove('gamebutton');
                 thongbao.classList.remove('hieuungthongbao');
                 tyletc.classList.remove('gamebutton');
-                tylethanhcong.innerHTML = tyle  + "%";
+                if (tyle <= 0){
+                    tyletc.classList.add('gamebutton');
+                }
+                else {
+                    tylethanhcong.innerHTML = tyle  + "%";
+                }
             }, 1000);
             dem++;
              // hiệu ứng quả cầu mạnh hơn
@@ -95,7 +100,7 @@ nangcap.addEventListener('click', function(){
                 var shadowVertical = '0px'; // Khoảng cách theo chiều dọc
                 quacau.style.boxShadow = `${shadowHorizontal} ${shadowVertical} ${shadowBlur} ${shadowColor}`;
                 nangcap.innerHTML = "Đã max cấp";
-                
+
             }
         }
         else {
@@ -157,7 +162,7 @@ function startLoop() {
             vegetaimg.src = './img/vegeta.png';
             vegeta.classList.add('taitaonangluong');    
         }
-    }, 1000); // Chạy mỗi giây (1000 miliseconds)
+    }, 500); // Chạy mỗi giây (1000 miliseconds)
 }
 
 startLoop()
