@@ -1,0 +1,157 @@
+
+.mainDisplay {
+    padding: 0;
+    height: 100vh;
+}
+/* phần trên */
+.battle {
+    height: 80%;
+    background-image: url(./img/x3b343.png);
+}
+.background {
+    height: 100%;
+    background-image: url(./img/x3b170.png);
+    background-position: bottom;
+    background-repeat: repeat-x;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 100px;
+    padding-top: 100px;
+}
+
+/* div bao nhân vật tại đây */
+.main-battle {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+/* nhân vật */
+.songoku {
+    position: absolute;
+    bottom: 0;
+}
+.vegeta {
+    position: absolute;
+   
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    padding-top: 60px;
+    padding-left: 15px;
+}
+.taitaonangluong {
+    background-image: url(./img/ttnl2.gif);
+    background-size: 100%;
+}
+.quacau {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    background-image: url(./img/qckk.png);
+    width: 80px;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-size: cover;
+    transition: all 0.5s ease;
+    border-radius: 100%;
+}
+.back {
+    transition: all 0.8s ease;
+}
+/* goku quả cầu kênh khi */
+
+@keyframes qckk {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-200px);
+    }
+}
+
+@keyframes hieuungqckk {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes nhun {
+    0% {
+        transform: translateY(-200px);
+    }
+    50% {
+        transform: translateY(-195px);
+    }
+    100% {
+        transform: translateY(-200px);
+    }
+}
+.quacau {
+    animation: hieuungqckk 0.1s ease 3.5s infinite;
+}
+/* , tancong 2s linear infinite */
+.qckk {
+    animation: qckk 3s ease 1s forwards, nhun 1s ease 4s infinite;
+}
+/******* phần bên dưới ******/
+.upgrade {
+    height: 20%;
+    background-image: linear-gradient(rgb(164, 68, 0), rgb(221, 104, 21));
+}
+.cuonghoathanhcong {
+    height: 30%;
+    display: flex;
+    justify-content: center;
+}
+.thongbao {
+    height: 100%;
+    width: auto;
+    padding: 0px 10px;
+    font-size: x-large;
+    font-weight: bolder;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(252, 237, 34);
+    background-color: rgb(0, 0, 0);
+    border: solid rgb(252, 237, 34);
+    border-radius: 10px;
+    opacity: 0;
+}
+@keyframes lentren {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-100px);
+    }
+}
+/**** nút và thông báo ***/
+.hieuungthongbao {
+    animation: lentren 1s ease 0s backwards;
+}
+.gamebutton {
+    display: none;
+}
+.gamebutton1 {
+    border-radius: 20px;
+    height: 40px;
+    width: 8rem;
+    background-color: rgb(0, 255, 140);
+    border: solid rgb(255, 157, 0);
+    color: rgb(65, 0, 0);
+    font-size: larger;
+    font-weight: bolder;
+    transition: all 0.3s ease-in-out;
+}
+@media (min-width: 500px){
+    .gamebutton1:hover {
+        transform: scale(1.2);
+    }
+}
