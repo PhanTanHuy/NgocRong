@@ -19,7 +19,6 @@
 <body>
     <audio controls autoplay style="display: none;">
         <source src="./song5.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
     </audio>
     <div class="container-fluid mainDisplay" id="mainDisplay">
         <div class="battle">
@@ -34,11 +33,13 @@
                     <div class="vegeta" id="vegeta">
                         <img id="vegetaimg" src="./img/vegetagif2.gif" style="height: 80px;">
                     </div>
-
+                   
                     <div class="tinnhan text-center" id="tinnhan">
                         Ta sẽ quét sạch Trái Đất!
                     </div>
+                    <div class="vuno" id="vuno">
 
+                    </div>
                     <div class="heart">
                         <img src="./bigImg/heart.png" height="25px">
                     </div>
@@ -57,16 +58,14 @@
                     Nâng cấp thành công!
                 </div>
             </div>
-           <div>
+           <div style="transform: translateY(-20px);">
                 <button id="nangcap" class="gamebutton1 gamebutton" style="margin-right: 8px;">Nâng cấp</button>
                 <button id="tancong" class="gamebutton1 gamebutton" style="margin-left: 8px; background-color: rgb(255, 77, 0);">Tấn công</button>
            </div>
-           <div id="tyletc" class="gamebutton" style="margin-top: 10px; color: rgb(255, 243, 12); font-size: larger; font-weight: bolder; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+           <div id="tyletc" class="gamebutton" style="margin-top: 10px; color: rgb(255, 243, 12); font-size: larger; font-weight: bolder; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transform: translateY(-20px);">
             Tỷ lệ thành công: <span id="tylethanhcong">100%</span>
            </div>
-            
         </div>
-
     </div>
 </body>
 <script src="./main.js"></script>

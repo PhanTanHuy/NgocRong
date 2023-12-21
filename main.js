@@ -126,7 +126,7 @@ nangcap.addEventListener('click', function(){
         }
         else {
             thongbao.classList.add('hieuungthongbao');
-            thongbao.innerHTML = "Nâng cấp thất bại rồi bạn êy!";
+            thongbao.innerHTML = "Thất bại rồi bạn êy!";
             nangcap.classList.add('gamebutton');
             tancong.classList.add('gamebutton');
             tyletc.classList.add('gamebutton');
@@ -140,42 +140,72 @@ nangcap.addEventListener('click', function(){
     }  
 });
 // Tấn công
+// vu no
+var vuno =document.getElementById('vuno');
+//
 var tancong = document.getElementById('tancong');
+
 var vegeta = document.getElementById('vegeta');
 var goku = document.getElementById('goku');
 var phantramhp = document.getElementById('phantramhp');
 // hp
 var hp = 100 - (dem + 1)*3;
 var mainDisplay = document.getElementById('mainDisplay');
+var isClick = true;
 tancong.addEventListener('click', function(){
-    // tru hp vegeta
-    phantramhp.style.width = hp + "%";
-    console.log(hp);
-    
-    hp = hp -(dem+1)*3;
-    if (hp <= 0){
-        phantramhp.style.display = "none";
+    // thới gian click cách mỗi 1.5s
+    if (isClick) {
+        isClick = false;
+         setTimeout(function() {
+            isClick = true;
+        }, 1300);
+        console.log("isclick la true");
+        // tru hp vegeta
+        setTimeout(function(){
+            vuno.style.display = "block";
+            phantramhp.style.width = hp + "%";
+        }, 500)
+        console.log(hp);
+        
+        hp = hp -(dem+1)*3;
+        if (hp <= 0){
+            phantramhp.style.display = "none";
+            // an di phan duoi
+            tyletc.style.display = "none";
+            nangcap.style.display = "none";
+            tancong.style.display = "none";
+            tyletc.innerHTML = "Bạn đã chiến thắng!";
+            tyletc.style.display = "block";
+            vuno.style.display = "block";
+            return ;
+        }
+        // doi anh goku
+        var gokuImage = document.getElementById('gokuImage');
+        gokuImage.src = './bigImg/goku3.png';
+        var vegetaRect = vegeta.getBoundingClientRect();
+        mainDisplay.style.backgroundColor = 'white';
+        quacau.classList.add('back');
+        console.log('da click');
+        console.log(vegetaRect.left);
+        console.log(vegetaRect.top);
+        quacau.style.left = vegetaRect.left - 0 + 'px';
+        quacau.style.top = vegetaRect.top - 0 + 'px';
+        // vu no
+       
+        setTimeout(function() {
+            quacau.classList.remove('back');
+            quacau.style.left = leftleft + 'px';
+            quacau.style.top = leftleft + 'px';
+            gokuImage.src = './img/Goku.png';
+            vuno.style.display = "none";
+        }, 1000);
+        // hieu ung nghien nguoi
+        
     }
-    // doi anh goku
-    var gokuImage = document.getElementById('gokuImage');
-    gokuImage.src = './bigImg/goku3.png';
-    var vegetaRect = vegeta.getBoundingClientRect();
-    mainDisplay.style.backgroundColor = 'white';
-    quacau.classList.add('back');
-    console.log('da click');
-    console.log(vegetaRect.left);
-    console.log(vegetaRect.top);
-    quacau.style.left = vegetaRect.left - 50 + 'px';
-    quacau.style.top = vegetaRect.top - 30 + 'px';
-    setTimeout(function() {
-        quacau.classList.remove('back');
-        quacau.style.left = leftleft + 'px';
-        quacau.style.top = leftleft + 'px';
-        gokuImage.src = './img/Goku.png';
-    }, 1000);
-    // hieu ung nghien nguoi
-   
-    
+    else {
+        console.log('is clicl la false');
+        isClick = false;
+    }
 });
 
 
@@ -195,5 +225,5 @@ function startLoop() {
         }
     }, 500); // Chạy mỗi giây (1000 miliseconds)
 }
-
-startLoop()
+startLoop();
+// thong bao chuc mung ban da chien thanng 
